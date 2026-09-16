@@ -172,3 +172,26 @@ show_server_info(server)
 
 
 
+def get_server_status(server):
+    return server.get("status", "unknown")
+
+status = get_server_status(server)
+
+print("Server status:", status)
+
+
+def change_server_status(server, new_status):
+    server["status"] = new_status
+    return server
+
+updated_server = change_server_status(server, "stopped")
+
+print(updated_server)
+
+
+def change_server_ip(server, new_ip):
+    server["ip"] = new_ip
+    return server
+updated_server = change_server_ip(server, "10.0.0.25")
+
+print(updated_server)
