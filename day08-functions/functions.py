@@ -240,3 +240,59 @@ def check_environment_safe(server):
 
 print (check_environment_safe(server_a))
 print (check_environment_safe(server_b))
+
+servers = [
+    {"name": "web-01", "status": "running"},
+    {"name": "db-01", "status": "stopped"},
+    {"name": "backup-01", "status": "running"}
+]
+
+def count_running_servers(servers):
+    count = 0
+    for server in servers:
+        if server.get("status") == "running":
+            count = count + 1
+    return count
+running = count_running_servers(servers)
+print ("Running servers:", running)
+
+
+def count_stopped_servers(servers):
+    count = 0
+    for server in servers:
+        if server.get("status") == "stopped":
+            count = count + 1
+    return count
+stopped = count_stopped_servers(servers)
+print ("Stopped servers:", stopped)
+
+
+def count_servers_by_status(servers, status):
+    count = 0
+    for server in servers:
+        if server.get("status") == status:
+            count = count + 1
+    return count
+print ("Running:", count_servers_by_status(servers, "running"))
+print ("Stopped:", count_servers_by_status(servers, "stopped"))
+
+
+def get_server_summary(servers):
+    total = 0
+    running = 0
+    stopped = 0
+    for server in servers:
+        total = total + 1
+        if server.get("status") == "running":
+            running = running + 1
+        elif server.get("status") == "stopped":
+            stopped = stopped + 1
+
+    summary = {
+    "total": total,
+    "running": running,
+    "stopped": stopped
+    }
+    return summary
+
+print(get_server_summary(servers))
