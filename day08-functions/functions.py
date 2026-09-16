@@ -195,3 +195,48 @@ def change_server_ip(server, new_ip):
 updated_server = change_server_ip(server, "10.0.0.25")
 
 print(updated_server)
+
+
+server = {
+    "name": "web-01",
+    "ip": "10.0.0.25",
+    "status": "running",
+    "environment": "production"
+}
+
+def check_server(server):
+    if  server["status"] == "running":
+       return f'{server["name"]} is online'
+    else:
+        return f'{server["name"]} is offline'
+
+result = check_server(server)
+print(result)
+
+
+def check_environment(server):
+    if server["environment"] == "production":
+        return "Production server"
+    else:
+        return "Non-production server"
+result = check_environment(server)
+print(result)
+
+
+server_a = {
+    "name": "web-01",
+    "environment": "production"
+}
+
+server_b = {
+    "name": "test-01"
+}
+
+def check_environment_safe(server):
+    if server.get("environment") == "production":
+        return "Production server"
+    else:
+        return "Non-production server"
+
+print (check_environment_safe(server_a))
+print (check_environment_safe(server_b))
