@@ -1,2 +1,0 @@
-Total servers: 4
-Status: completed
