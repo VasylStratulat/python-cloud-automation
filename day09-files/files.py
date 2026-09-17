@@ -42,3 +42,31 @@ for server in servers:
 
 with open("servers_copy.txt", "w") as file:
     file.writelines(server_lines)
+
+with open("servers.txt", "r") as file:
+    first_server = file.readline()
+    second_server = file.readline()
+
+print(first_server.strip())
+print(second_server.strip())
+
+def load_servers(filename):
+    servers = []
+
+    with open(filename, "r") as file:
+        for line in file:
+            servers.append(line.strip())
+
+    return servers
+
+loaded_servers = load_servers("servers.txt")
+print(loaded_servers)
+
+def count_servers_in_file(filename):
+    count = 0
+    with open(filename, "r") as file:
+        for line in file:
+            count += 1
+    return count
+total = count_servers_in_file("servers.txt")
+print("Servers in file:", total)
