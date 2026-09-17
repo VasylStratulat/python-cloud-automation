@@ -105,3 +105,14 @@ def save_servers(filename, servers):
             file.write(server + "\n")
 
 save_servers("valid_servers.txt", valid_servers)
+
+
+def process_server_file(input_filename, output_filename):
+    servers = load_valid_servers(input_filename)
+    save_servers(output_filename, servers)
+
+    return len(servers)
+
+total = process_server_file("servers.txt", "processed_servers.txt")
+
+print("Processed servers:", total)
