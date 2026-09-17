@@ -1,5 +1,4 @@
 web-01
-
 db-01
 backup-01
 monitoring-01

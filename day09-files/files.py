@@ -70,3 +70,38 @@ def count_servers_in_file(filename):
     return count
 total = count_servers_in_file("servers.txt")
 print("Servers in file:", total)
+
+
+def count_valid_servers(filename):
+    count = 0
+
+    with open(filename, "r") as file:
+        for line in file:
+            if line.strip():
+                count += 1
+
+    return count
+
+valid = count_valid_servers("servers.txt")
+print("Valid servers:", valid)
+
+def load_valid_servers(filename):
+    servers = []
+
+    with open(filename, "r") as file:
+        for line in file:
+            if line.strip():
+                servers.append(line.strip())
+
+    return servers
+
+valid_servers = load_valid_servers("servers.txt")
+print(valid_servers)
+
+
+def save_servers(filename, servers):
+    with open(filename, "w") as file:
+        for server in servers:
+            file.write(server + "\n")
+
+save_servers("valid_servers.txt", valid_servers)
