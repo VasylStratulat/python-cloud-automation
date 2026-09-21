@@ -92,3 +92,20 @@ def read_number_from_file(filename):
 print(read_number_from_file("port.txt"))
 print(read_number_from_file("bad_port.txt"))
 print(read_number_from_file("missing_port.txt"))
+
+def load_port(filename):
+    try:
+        with open(filename, "r") as file:
+            port = int(file.read().strip())
+    except FileNotFoundError:
+        return "File not found"
+    except ValueError:
+        return "Invalid port" 
+    else:
+        return port
+    finally:
+        print("Port check finished")
+
+print(load_port("port.txt"))
+print(load_port("bad_port.txt"))
+print(load_port("missing_port.txt"))
