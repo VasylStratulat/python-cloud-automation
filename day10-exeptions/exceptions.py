@@ -55,3 +55,40 @@ def read_file_safe(filename):
         return content
 print(read_file_safe("existing_file.txt"))
 print(read_file_safe("missing_file.txt"))
+
+try:
+    number = int(input("Enter a number: "))
+    result = 100 / number
+
+except Exception as error:
+    print("Error:", error)
+
+else:
+    print("Result:", result)
+
+try:
+    number = int(input("Enter a number: "))
+    result = 100 / number
+
+except ValueError as error:
+    print("Value error:", error)
+
+except ZeroDivisionError as error:
+    print("Division error:", error)
+
+else:
+    print("Result:", result)
+
+def read_number_from_file(filename):
+    try:
+        with open(filename, "r") as file:
+            number = int(file.read().strip())
+    except FileNotFoundError:
+        return "File not found"
+    except ValueError:
+        return "Invalid number"
+    return number
+
+print(read_number_from_file("port.txt"))
+print(read_number_from_file("bad_port.txt"))
+print(read_number_from_file("missing_port.txt"))
