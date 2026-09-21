@@ -31,3 +31,27 @@ def divide_numbers():
         print("Calculation finished")
 
 divide_numbers()
+
+try:
+    with open("existing_file.txt", "r") as file:
+        content = file.read()
+
+except FileNotFoundError:
+    print("File not found")
+
+else:
+    print(content)
+
+finally:
+    print("File operation finished")
+
+def read_file_safe(filename):
+    try:
+        with open(filename, "r") as file:
+            content = file.read()
+    except FileNotFoundError:
+        return"File not found"
+    else:
+        return content
+print(read_file_safe("existing_file.txt"))
+print(read_file_safe("missing_file.txt"))
