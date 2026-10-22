@@ -9,3 +9,6 @@ __pycache__/
 day12-review/day12_servers.txt
 day12-review/day12_port.txt
 day12-review/day12_bad_port.txt
+day13-json/day13_config.json
+day13-json/day13_servers.json
+day13-json/day13_bad.json
