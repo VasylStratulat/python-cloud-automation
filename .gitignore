@@ -6,3 +6,6 @@ day09-files/valid_servers.txt
 day09-files/processed_servers.txt
 __pycache__/
 *.pyc
+day12-review/day12_servers.txt
+day12-review/day12_port.txt
+day12-review/day12_bad_port.txt
