@@ -15,3 +15,4 @@ day13-json/day13_bad.json
 day14-strings/day14_app.log
 day14-strings/day14_errors.txt
 day20-review/day20_orders.json
+.venv/
